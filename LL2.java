@@ -53,6 +53,44 @@ public class LL2 {
                 head=temp;
             }
         }
+
+        void insertAt(int idx,int data){
+            ListNode t = new ListNode(data);
+            ListNode temp=head;
+            if(idx==size()){
+                insertAtEnd(data);
+                return;
+            }
+            else if (idx==0) {
+                insertAtHead(data);
+                return;
+                
+            }
+            else{
+            for(int i=1;i<=idx-1;i++){
+                temp=temp.next;
+            }
+            t.next=temp.next;
+            temp.next=t;
+        }
+        }
+
+    void getElementAt(int idx){
+        ListNode temp=head;
+        for(int i=1;i<=idx;i++){
+            temp=temp.next;
+        }
+        System.out.println("value at index "+idx+" is:"+temp.data);
+    }
+
+    }
+
+    public static void insertAtEnd(ListNode head,int data){
+        ListNode current = new ListNode(data);
+        ListNode temp=head;
+        while(temp.next!=null){
+            temp=temp.next;  //reached tail
+        }
     }
 
     public static void main(String[] args) {
@@ -64,5 +102,8 @@ public class LL2 {
         ll.display();
         ll.insertAtHead(2);
         ll.display();
+        ll.insertAt(0,10);
+        ll.display();
+        ll.getElementAt(3);
     }
 }

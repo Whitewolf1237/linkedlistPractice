@@ -83,15 +83,20 @@ public class LL2 {
         System.out.println("value at index "+idx+" is:"+temp.data);
     }
 
+    void deleteAtIndex(int idx){
+        if(idx==0) {
+            head=head.next;
+        }
+        ListNode temp=head;
+        for(int i=1;i<=idx-1;i++){
+            temp=temp.next;
+        }
+        temp.next=temp.next.next;
+        tail=temp;
     }
 
-    public static void insertAtEnd(ListNode head,int data){
-        ListNode current = new ListNode(data);
-        ListNode temp=head;
-        while(temp.next!=null){
-            temp=temp.next;  //reached tail
-        }
-    }
+}
+
 
     public static void main(String[] args) {
         linkedlist ll = new linkedlist();
@@ -105,5 +110,7 @@ public class LL2 {
         ll.insertAt(0,10);
         ll.display();
         ll.getElementAt(3);
+        ll.deleteAtIndex(4);
+        ll.display();
     }
 }

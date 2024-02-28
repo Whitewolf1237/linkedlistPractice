@@ -7,6 +7,16 @@ public class LL1 {
         }
     }
 
+    public static void insertAtEnd(Node head,int data){
+        Node current = new Node(data);
+        Node temp=head;
+        while(temp.next!=null){
+            temp=temp.next;  //reached tail
+        }
+        temp.next=current;
+    }
+
+
     public static int lengthLL(Node head){
         int count =0;
         while(head!=null){
@@ -14,6 +24,15 @@ public class LL1 {
             head=head.next;
         }
         return count;
+    }
+
+    public static void display(Node head){
+        Node temp=head;
+        System.out.println();
+        while(temp!=null){
+            System.out.print(temp.data+" ");
+            temp=temp.next;
+        }
     }
 
 // print except the last one 
@@ -43,5 +62,7 @@ public class LL1 {
         d.next=e;
         System.out.println(lengthLL(a));
         exceptLastOne(a);
+        insertAtEnd(a, 6);
+        display(a);
     }
 }

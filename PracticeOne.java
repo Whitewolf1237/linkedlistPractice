@@ -105,6 +105,12 @@ class LinkedList{
         }
     }
 
+    void printReverse(Node head){
+        if(head==null)return;
+        System.out.println(head.data+" ");
+        printReverse(head.next);
+    }
+
 
     void deleteAtIdx(int idx){
         if(idx<0){
@@ -156,5 +162,7 @@ public class PracticeOne {
         ll.deleteAtIdx(4);
         System.out.println();
         ll.printLinkedList();
+        System.out.println();
+        ll.printReverse(head);
     }
 }
